@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    setlocale(0, "RUS");
+    cout << "Дан алфавит: a,b. Составить правила преобразования, по которым в исходное слово преобразуется к виду: \n" 
+        << "все a - слева, все b - справа \n\n";
+    string s;
+    bool f = true;
+    cout << "Введите строку s, используя алфавит {a,b}: \n";
+    cin >> s;
+    while (f == true)
+    {
+        if (s.find("ba") != -1) //если не находит вхождение в строке, возвращает -1
+        {
+            s.replace(s.find("ba"), 2, "ab");
+            continue;
+            f = false;
+        }
+        cout << "Конечный результат: " << s << endl;
+        break;
+    }
+    return 0;
+}

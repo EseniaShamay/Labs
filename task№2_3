@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    setlocale(0, "RUS");
+    cout << "A={a,b}. Удалить из непустого произвольного слова P его первый символ. \n"
+        << "Пустое слово не менять. \n\n";
+    string s;
+    cout << "Введите строку, используя алфавит {a,b}: \n";
+    cin >> s;
+    s.erase(0,1);
+    cout << "Конечная строка: \n" << s;
+    return 0;
+}

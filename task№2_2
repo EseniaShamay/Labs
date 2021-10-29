@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    setlocale(0, "RUS");
+    cout << "A={a,b,c,d}. В произвольном слове P требуется удалить все вхождения символа c, \n" 
+        << "затем заменить первое первое вхождение подслова bb на ddd. \n\n";
+    string s;
+    cout << "Введите строку, используя алфавит {a,b,c,d}: \n";
+    cin >> s;
+    while (s.find("c") != -1)
+    {
+        s.erase(s.find("c"), 1); 
+    }
+    s.replace(s.find("bb"), 2, "ddd");
+    cout << s << endl;
+    return 0;
+}

@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    setlocale(0, "RUS");
+    cout << "A={a,b}. Требуется приписать символ a к концу произвольного слова P. \n\n";
+    string s;
+    cout << "Введите строку, используя алфавит {a,b}: \n";
+    cin >> s;
+    while (true)
+    {
+        if (s.find("*a") != -1)
+        {
+            s.replace(s.find("*a"), 2, "a*");
+            cout << s << endl;
+            continue;
+        }
+        if (s.find("*b") != -1)
+        {
+            s.replace(s.find("*b"), 2, "b*");
+            cout << s << endl;
+            continue;
+        }
+        if (s.find("*") == -1)
+        {
+            s = '*' + s;
+            cout << s << endl;
+            continue;
+        }
+        if (s.find("*") != -1)
+        {
+            s.replace(s.find("*"), 1, "a");
+            cout << s << endl;
+            break;
+        }
+        break;
+    }
+    return 0;
+}

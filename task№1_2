@@ -1,0 +1,130 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	setlocale(0, "RUS");
+	cout << "Дано трехзначное число, вывести все возможные комбинации цифр и найти максимальное из них (по модулю).\n";
+	cout << "Введите трехзначное число, цифры в числе не повторяются: \n";
+	int number;
+	int number1;
+	int number2;
+	int number3;
+	bool f;
+	f = false;
+	cin >> number;
+
+	while (f == false)
+	{
+		if (number < 100)
+		{
+			cout << "Введено неверное число, число должно быть трехзначным.\n";
+			cin >> number;
+		}
+		else
+		{
+			if (number > 999)
+			{
+				cout << "Введено неверное число, число должно быть трехзначным.\n";
+				cin >> number;
+			}
+			else
+			{
+				number3 = number % 10;
+				number = number / 10;
+				number2 = number % 10;
+				number1 = number / 10;
+
+				if (number2 == number1)
+				{
+					cout << "Введено неверное число, цифры не должны повторяться.\n";
+					cin >> number;
+					number3 = number % 10;
+					number = number / 10;
+					number2 = number % 10;
+					number1 = number / 10;
+				}
+				else
+				{
+					if (number3 == number1)
+					{
+						cout << "Введено неверное число, цифры не должны повторяться.\n";
+						cin >> number;
+						number3 = number % 10;
+						number = number / 10;
+						number2 = number % 10;
+						number1 = number / 10;
+					}
+					else
+					{
+						if (number3 == number2)
+						{
+							cout << "Введено неверное число, цифры не должны повторяться.\n";
+							cin >> number;
+							number3 = number % 10;
+							number = number / 10;
+							number2 = number % 10;
+							number1 = number / 10;
+						}
+						else
+						{
+							f = true;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	cout << "Все возможные комбинации чисел: \n";
+	cout << number1 << number2 << number3 << "\n";
+	cout << number1 << number3 << number2 << "\n";
+	cout << number2 << number1 << number3 << "\n";
+	cout << number2 << number3 << number1 << "\n";
+	cout << number3 << number1 << number2 << "\n";
+	cout << number3 << number2 << number1 << "\n";
+
+	if (number1 > number2)
+	{
+		if (number1 > number3)
+		{
+			cout << "Максимальное число: " << number1;
+			if (number2 > number3)
+			{
+				cout << number2 << number3;
+			}
+			else
+			{
+				cout << number3 << number2;
+			}
+		}
+		else
+		{
+			cout << "Максимальное число: " << number3;
+			if (number2 > number1)
+			{
+				cout << number2 << number1;
+			}
+			else
+			{
+				cout << number1 << number2;
+			}
+		}
+	}
+	else
+	{
+		if (number2 > number3)
+		{
+			cout << "Максимальное число: " << number2;
+			if (number1 > number3)
+			{
+				cout << number1 << number3;
+			}
+			else
+			{
+				cout << number3 << number1;
+			}
+		}
+	}
+	return 0;
+}
